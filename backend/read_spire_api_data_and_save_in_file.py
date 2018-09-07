@@ -28,6 +28,7 @@ def query_data():
     print 'Start Querying SPIRE Data...'
     request = ENDPOINT
     prev_since = None
+    num_of_files = 1
     while True:
         print request
         response = requests.get(request, headers=HEADERS)
@@ -37,8 +38,10 @@ def query_data():
         try:
             process_messages(data['data'])
 
-	    with open('raw_downloaded_json.txt', 'a') as outfile:
+	    with open('./raw_api_data/raw_downloaded_json'+str(num_of_files)+'.txt', 'w') as outfile:
                 json.dump(data['data'], outfile) 
+                outfile.write("\n")
+            num_of_files = num_of_files + 1
         except KeyError, e:
             print "Got a KeyError - Reason: %s" % str(e)
             print data
@@ -53,8 +56,6 @@ def query_data():
             request = ENDPOINT + "?next=%s" % since
         else:
             print 'The data transfer is over. Thank you.'
-	    with open('raw_downloaded_json.txt', 'a') as outfile:
-                json.dump("\n", outfile) 
             return
 
         if prev_since == since:
