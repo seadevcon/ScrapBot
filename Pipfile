@@ -7,6 +7,7 @@ name = "pypi"
 shapely = "*"
 pandas = "*"
 requests = "*"
+timestring = "*"
 
 [dev-packages]
 
