@@ -15,8 +15,8 @@ def test(query_params: http.QueryParams):
     lat = params.get("lat")
     lon = params.get("lon")
     time = params.get("time")
-    vtype, owner = get_details(imo)
-    send_notification(imo, owner, lat, lon, time, vtype)
+    vtype, owner, name = get_details(imo)
+    send_notification(imo, owner, lat, lon, time, vtype, name)
     
 
 

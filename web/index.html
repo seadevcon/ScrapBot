@@ -1,13 +1,23 @@
 <html>
 <head>
-    <meta charset='utf-8' />
+    <meta charset='utf-8'/>
     <title>ScrapB</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet'/>
     <style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <style>
@@ -16,58 +26,71 @@
     }
 </style>
 <body>
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-    <script>
-        /*MsgElem = document.getElementById("msg")
-        TokenElem = document.getElementById("token")
-        NotisElem = document.getElementById("notis")
-        ErrElem = document.getElementById("err")*/
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBE_tgEzcwzI8wA9q2xPSLTbZvat628Y-Y",
-    authDomain: "scrapping-alert.firebaseapp.com",
-    databaseURL: "https://scrapping-alert.firebaseio.com",
-    projectId: "scrapping-alert",
-    storageBucket: "scrapping-alert.appspot.com",
-    messagingSenderId: "186957751146",
-        };
-        firebase.initializeApp(config);
-
-        const messaging = firebase.messaging();
-        messaging
-            .requestPermission()
-            .then(function () {
-                //MsgElem.innerHTML = "Notification permission granted." 
-                console.log("Notification permission granted.");
-                
-                // get the token in the form of promise
-                return messaging.getToken()
-            })
-            .then(function(token) {
-                console.log(token)
-                //TokenElem.innerHTML = "token is : " + token
-            })
-            .catch(function (err) {
-                //ErrElem.innerHTML =  ErrElem.innerHTML + "; " + err
-                console.log("Unable to get permission to notify.", err);
-            });
-
-        messaging.onMessage(function(payload) {
-            console.log("Message received. ", payload);
-            //NotisElem.innerHTML = NotisElem.innerHTML + JSON.stringify(payload) 
-        });
-    </script>
-    <div id='map'></div>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 <script>
-mapboxgl.accessToken = 'pk.eyJ1Ijoia25hcHBlcnpidXNjaCIsImEiOiJjamc2cDN3ejcwYzI2MndrbHhyOTJtMmVyIn0.qqVD3RzLx5sm5jLHahOS0w';
-var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-    center: [-74.50, 40], // starting position [lng, lat]
-    zoom: 9 // starting zoom
-});
+    /*MsgElem = document.getElementById("msg")
+    TokenElem = document.getElementById("token")
+    NotisElem = document.getElementById("notis")
+    ErrElem = document.getElementById("err")*/
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBE_tgEzcwzI8wA9q2xPSLTbZvat628Y-Y",
+        authDomain: "scrapping-alert.firebaseapp.com",
+        databaseURL: "https://scrapping-alert.firebaseio.com",
+        projectId: "scrapping-alert",
+        storageBucket: "scrapping-alert.appspot.com",
+        messagingSenderId: "186957751146",
+    };
+    firebase.initializeApp(config);
+
+    const messaging = firebase.messaging();
+    messaging
+        .requestPermission()
+        .then(function () {
+            //MsgElem.innerHTML = "Notification permission granted."
+            console.log("Notification permission granted.");
+
+            // get the token in the form of promise
+            return messaging.getToken()
+        })
+        .then(function (token) {
+            console.log(token)
+            //TokenElem.innerHTML = "token is : " + token
+        })
+        .catch(function (err) {
+            //ErrElem.innerHTML =  ErrElem.innerHTML + "; " + err
+            console.log("Unable to get permission to notify.", err);
+        });
+
+    messaging.onMessage(function (payload) {
+        console.log("Message received. ", payload);
+
+        let body = JSON.parse(payload.notification.body);
+        let lat = body.lat;
+        let lon = body.lon;
+        let owner = body.owner;
+        let vesselname = body.name;
+        let vtype = body.vtype
+
+        new mapboxgl.Marker()
+            .setLngLat([lon, lat])
+            .setPopup(new mapboxgl.Popup({offset: 25}) // add popups
+                .setHTML('<h3>' + vesselname + '</h3><p>' + vtype + '</p><p>' + owner + '</p>'))
+            .addTo(map);
+        //NotisElem.innerHTML = NotisElem.innerHTML + JSON.stringify(payload)
+    });
+</script>
+<div id='map'></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoia25hcHBlcnpidXNjaCIsImEiOiJjamc2cDN3ejcwYzI2MndrbHhyOTJtMmVyIn0.qqVD3RzLx5sm5jLHahOS0w';
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+        center: [-74.50, 40], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
 </script>
 
-    </body>
+</body>
 
 </html>
