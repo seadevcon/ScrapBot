@@ -66,17 +66,28 @@
         console.log("Message received. ", payload);
 
         let body = JSON.parse(payload.notification.body);
-        let lat = body.lat;
+        let lat;
+        lat = body.lat;
         let lon = body.lon;
         let owner = body.owner;
         let vesselname = body.name;
-        let vtype = body.vtype
+        let vtype = body.vtype;
+        if (lat != null) {
+            marker = new mapboxgl.Marker()
+                .setLngLat([lon, lat])
+                .setPopup(new mapboxgl.Popup({offset: 25}) // add popups
+                    .setHTML('<h3>' + vesselname + '</h3><p>' + vtype + '</p><p>' + owner + '</p>'))
+                .addTo(map);
+            console.log(lat)
+            console.log(lon)
+            console.log(marker._lngLat)
+            if (marker != null) {
+                map.flyTo({
+                    center: [marker._lngLat.lng,marker._lngLat.lat]
+                });
+            }
+        }
 
-        new mapboxgl.Marker()
-            .setLngLat([lon, lat])
-            .setPopup(new mapboxgl.Popup({offset: 25}) // add popups
-                .setHTML('<h3>' + vesselname + '</h3><p>' + vtype + '</p><p>' + owner + '</p>'))
-            .addTo(map);
         //NotisElem.innerHTML = NotisElem.innerHTML + JSON.stringify(payload)
     });
 </script>
