@@ -55,6 +55,7 @@
         })
         .then(function (token) {
             console.log(token)
+            alert(token)
             //TokenElem.innerHTML = "token is : " + token
         })
         .catch(function (err) {
@@ -65,7 +66,7 @@
     messaging.onMessage(function (payload) {
         console.log("Message received. ", payload);
 
-        let body = JSON.parse(payload.notification.body);
+        let body = payload.data;
         let lat;
         lat = body.lat;
         let lon = body.lon;
@@ -75,7 +76,7 @@
         if (lat != null) {
             marker = new mapboxgl.Marker()
                 .setLngLat([lon, lat])
-                .setPopup(new mapboxgl.Popup({offset: 25}) // add popups
+                .setPopup(new mapboxgl.Popup({offset: 25, closeOnClick: false}) // add popups
                     .setHTML('<h3>' + vesselname + '</h3><p>' + vtype + '</p><p>' + owner + '</p>'))
                 .addTo(map);
             console.log(lat)
