@@ -1,8 +1,8 @@
 from apistar import App, Route, http
 from typing import Dict
 
-from services.positions import test_vessel_tracker
-
+from services.vessel_service import get_details
+from services.fire_not import send_notification
 
 def get_info(app: App, query_params: http.QueryParams) -> Dict:
     return {
@@ -10,7 +10,14 @@ def get_info(app: App, query_params: http.QueryParams) -> Dict:
     }
 
 def test(query_params: http.QueryParams):
-    print(query_params)
+    params = dict(query_params)
+    imo = params.get("imo")
+    lat = params.get("lat")
+    lon = params.get("lon")
+    time = params.get("time")
+    vtype, owner = get_details(imo)
+    send_notification(imo, owner, lat, lon, time, vtype)
+    
 
 
 routes = [

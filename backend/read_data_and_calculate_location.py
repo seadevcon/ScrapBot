@@ -36,7 +36,7 @@ def send_to_server(imo, lat, lon, timestamp):
 
 
 skip = True
-mentinoned = True
+mentioned = True
 with open('ais_9131137.csv', 'r') as csvfile:
     file_content = csv.reader(csvfile, delimiter=',')
     for row in file_content:
@@ -58,7 +58,7 @@ for i in range(1, len(imo)):
     
     if abs(float(latitude[i]) - alang_scrap_yard[1]) < scrapping_distance:
         if abs(float(longitude[i]) - alang_scrap_yard[0]) < scrapping_distance:
-            if mentioned == True:
+            if mentioned:
                 mentioned = False
                 send_to_server(imo[i], latitude[i], longitude[i], timestamp_string[i])
                 print("scrapping")
@@ -71,7 +71,7 @@ for i in range(1, len(imo)):
                     calc_su_of_warning_in_the_look_back_time = calc_su_of_warning_in_the_look_back_time + 1
                     if calc_su_of_warning_in_the_look_back_time == look_back_value:
                         print("calc_su_of_warning_in_the_look_back_time!")
-                        send_to_server(imo[i], latitude[i], longitude[i], timestamp_string[i])
+                        #send_to_server(imo[i], latitude[i], longitude[i], timestamp_string[i])
 
 # print imo
 # print latitude

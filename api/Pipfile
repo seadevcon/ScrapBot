@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 apistar = "*"
 twython = "*"
+pyfcm = "*"
+"psycopg2" = "*"
 
 [dev-packages]
 

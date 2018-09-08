@@ -18,10 +18,10 @@
 <body>
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
     <script>
-        MsgElem = document.getElementById("msg")
+        /*MsgElem = document.getElementById("msg")
         TokenElem = document.getElementById("token")
         NotisElem = document.getElementById("notis")
-        ErrElem = document.getElementById("err")
+        ErrElem = document.getElementById("err")*/
         // Initialize Firebase
         var config = {
             apiKey: "AIzaSyBE_tgEzcwzI8wA9q2xPSLTbZvat628Y-Y",
@@ -45,7 +45,7 @@
             })
             .then(function(token) {
                 console.log(token)
-                TokenElem.innerHTML = "token is : " + token
+                //TokenElem.innerHTML = "token is : " + token
             })
             .catch(function (err) {
                 //ErrElem.innerHTML =  ErrElem.innerHTML + "; " + err
