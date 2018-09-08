@@ -1,6 +1,6 @@
-from apistar import App, Route
+from apistar import App, Route, Include
 
-from routes import scrap_event
+from routes import scrapping
 
 
 def welcome(name=None):
@@ -11,7 +11,7 @@ def welcome(name=None):
 
 routes = [
     Route('/', method='GET', handler=welcome),
-    Route('/', method='GET', handler=scrap_event)
+    Include('/scrapping', name='Scrapping', routes=scrapping.routes)
 ]
 
 app = App(routes=routes)

@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 apistar = "*"
+twython = "*"
 
 [dev-packages]
 
