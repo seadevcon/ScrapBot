@@ -99,3 +99,31 @@ for ship in output:
                                                 send_to_server(imo[i], latitude[i], longitude[i], timestamp_string[i])
 
 
+for i in range(1, len(imo)):
+    # time.sleep(1)
+    if abs(float(latitude[i]) - alang_scrap_yard[1]) < warnung_distance:
+        if abs(float(longitude[i]) - alang_scrap_yard[0]) < warnung_distance:
+            print("warnung")
+    
+    if abs(float(latitude[i]) - alang_scrap_yard[1]) < scrapping_distance:
+        if abs(float(longitude[i]) - alang_scrap_yard[0]) < scrapping_distance:
+            if mentioned:
+                mentioned = False
+                send_to_server(imo[i], latitude[i], longitude[i], timestamp_string[i])
+                print("scrapping")
+    
+    if i > look_back_value:
+        calc_su_of_warning_in_the_look_back_time = 0
+        for j in range(0, look_back_value):
+            if abs(float(latitude[i - j]) - alang_scrap_yard[1]) < warnung_distance:
+                if abs(float(longitude[i - j]) - alang_scrap_yard[0]) < warnung_distance:
+                    calc_su_of_warning_in_the_look_back_time = calc_su_of_warning_in_the_look_back_time + 1
+                    if calc_su_of_warning_in_the_look_back_time == look_back_value:
+                        print("calc_su_of_warning_in_the_look_back_time!")
+                        #send_to_server(imo[i], latitude[i], longitude[i], timestamp_string[i])
+
+# print imo
+# print latitude
+# print longitude
+# print speed
+# print timestamp
