@@ -9,11 +9,11 @@ def get_info(app: App, query_params: http.QueryParams) -> Dict:
         "desc": "Welcome, this is the scrapbot API"
     }
 
-def test():
-    test_vessel_tracker()
+def test(query_params: http.QueryParams):
+    print(query_params)
 
 
 routes = [
     Route("/info", method="POST", handler=get_info),
-    Route("/test", method="POST", handler=test),
+    Route("/notify", method="GET", handler=test),
     ]

@@ -10,5 +10,11 @@
       <user-name>postgres</user-name>
       <introspection-schemas>ports:public</introspection-schemas>
     </data-source>
+    <data-source name="mds_data@localhost" uuid="8a41c7fb-c114-44c9-90f1-05d65a92f97c">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>mds_admin</user-name>
+    </data-source>
   </component>
 </project>
