@@ -24,6 +24,12 @@
     div {
         margin-bottom: 15px;
     }
+    #menu {
+        position: absolute;
+        background: #fff;
+        padding: 10px;
+        font-family: 'Open Sans', sans-serif;
+    }
 </style>
 <body>
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
@@ -55,7 +61,7 @@
         })
         .then(function (token) {
             console.log(token)
-            alert(token)
+            //alert(token)
             //TokenElem.innerHTML = "token is : " + token
         })
         .catch(function (err) {
@@ -79,12 +85,10 @@
                 .setPopup(new mapboxgl.Popup({offset: 25, closeOnClick: false}) // add popups
                     .setHTML('<h3>' + vesselname + '</h3><p>' + vtype + '</p><p>' + owner + '</p>'))
                 .addTo(map);
-            console.log(lat)
-            console.log(lon)
-            console.log(marker._lngLat)
             if (marker != null) {
                 map.flyTo({
-                    center: [marker._lngLat.lng,marker._lngLat.lat]
+                    zoom: 14,
+                    center: [marker._lngLat.lng, marker._lngLat.lat]
                 });
             }
         }
@@ -93,14 +97,32 @@
     });
 </script>
 <div id='map'></div>
+<div id='menu'>
+    <input id='basic' type='radio' name='rtoggle' value='basic'>
+    <label for='basic'>basic</label>
+    <input id='satellite' type='radio' name='rtoggle' value='satellite' checked='checked'>
+    <label for='satellite'>satellite</label>
+</div>
 <script>
     mapboxgl.accessToken = 'pk.eyJ1Ijoia25hcHBlcnpidXNjaCIsImEiOiJjamc2cDN3ejcwYzI2MndrbHhyOTJtMmVyIn0.qqVD3RzLx5sm5jLHahOS0w';
     var map = new mapboxgl.Map({
         container: 'map', // container id
-        style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+        style: 'mapbox://styles/mapbox/satellite-v9', // stylesheet location
         center: [-74.50, 40], // starting position [lng, lat]
         zoom: 9 // starting zoom
     });
+
+    var layerList = document.getElementById('menu');
+    var inputs = layerList.getElementsByTagName('input');
+
+    function switchLayer(layer) {
+        var layerId = layer.target.id;
+        map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
+    }
+
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = switchLayer;
+    }
 </script>
 
 </body>
