@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b5979d0-11fc-4980-8e76-46166aaff268" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/api/services/vessel_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/scrapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/scrapping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/positions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/tweet.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/fire_not.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/services/fire_not.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/fire_not.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/read_data_and_calculate_location.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/read_data_and_calculate_location.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/firebase-messaging-sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/firebase-messaging-sw.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -93,8 +87,8 @@
       <file leaf-file-name="fire_not.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/services/fire_not.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="144">
+              <caret line="8" column="88" selection-start-line="8" selection-start-column="88" selection-end-line="9" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -123,8 +117,8 @@
       <file leaf-file-name="read_data_and_calculate_location.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/read_data_and_calculate_location.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="86" column="20" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
+            <state relative-caret-position="222">
+              <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -135,8 +129,8 @@
       <file leaf-file-name="firebase-messaging-sw.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/firebase-messaging-sw.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+            <state relative-caret-position="378">
+              <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -154,6 +148,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>mentinoned</find>
+      <find>warn</find>
     </findStrings>
     <replaceStrings>
       <replace>mentioned</replace>
@@ -183,8 +178,8 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/27fd886d-4410-4a74-a9eb-b1f369b6428f/console.sql" />
         <option value="$PROJECT_DIR$/api/routes/scrapping.py" />
         <option value="$PROJECT_DIR$/api/services/vessel_service.py" />
-        <option value="$PROJECT_DIR$/web/firebase-messaging-sw.js" />
         <option value="$PROJECT_DIR$/web/index.html" />
+        <option value="$PROJECT_DIR$/web/firebase-messaging-sw.js" />
         <option value="$PROJECT_DIR$/api/services/fire_not.py" />
         <option value="$PROJECT_DIR$/backend/read_data_and_calculate_location.py" />
       </list>
@@ -214,28 +209,6 @@
             <path>
               <item name="ScrapBot" type="b2602c69:ProjectViewProjectNode" />
               <item name="ScrapBot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrapBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrapBot" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrapBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrapBot" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrapBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrapBot" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrapBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrapBot" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ScrapBot" type="b2602c69:ProjectViewProjectNode" />
@@ -511,13 +484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/firebase-messaging-sw.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -525,17 +491,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/firebase-messaging-sw.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/services/fire_not.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="144">
+          <caret line="8" column="88" selection-start-line="8" selection-start-column="88" selection-end-line="9" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/read_data_and_calculate_location.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="86" column="20" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
+        <state relative-caret-position="222">
+          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

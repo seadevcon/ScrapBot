@@ -7,4 +7,4 @@ def send_notification(imo, owner, lat, lon, timestamp, vtype, name):
     message_title = "Vessel enters scrapping area"
     message_body = {"imo": imo, "owner": owner, "lat":lat, "lon": lon, "time": timestamp, "vtype": vtype, "name": name}
     result = push_service.notify_single_device(registration_id=registration_id, message_title=message_title,
-                                               message_body=message_body)
+                                               message_body=message_body, click_action="http://localhost:8887/")

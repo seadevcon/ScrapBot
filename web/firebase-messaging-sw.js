@@ -15,7 +15,7 @@ messaging.setBackgroundMessageHandler(function(payload) {
   const notificationTitle = 'Background Message Title';
   const notificationOptions = {
     body: 'Background Message body.',
-    icon: '/itwonders-web-logo.png'
+    icon: '/android-icon-48x48.png'
   };
 
   return self.registration.showNotification(notificationTitle,
