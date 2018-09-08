@@ -82,7 +82,8 @@
         if (lat != null) {
             marker = new mapboxgl.Marker()
                 .setLngLat([lon, lat])
-                .setPopup(new mapboxgl.Popup({offset: 25, closeOnClick: false}) // add popups
+                .setPopup(new mapboxgl.Popup({offset: 25, closeButton: false,
+            closeOnClick: false,}) // add popups
                     .setHTML('<h3>' + vesselname + '</h3><p>' + vtype + '</p><p>' + owner + '</p>'))
                 .addTo(map);
             if (marker != null) {

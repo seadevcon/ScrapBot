@@ -35,11 +35,12 @@ def send_to_server(imo, lat, lon, timestamp):
 # print lat
 # print lon
 # print timestamp
-
+file_name = 'ais_9131137.csv'
+#file_name = 'ais_9145188.csv'
 
 skip = True
 mentioned = True
-with open('ais_9131137.csv', 'r') as csvfile:
+with open(file_name, 'r') as csvfile:
     file_content = csv.reader(csvfile, delimiter=',')
     for row in file_content:
         imo.append(row[0])
